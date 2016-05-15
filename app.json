@@ -1,0 +1,68 @@
+{
+    "id": "net.schotanus.danny",
+    "name": {
+        "en": "Constellation"
+    },
+    "version": "0.0.1",
+    "compatibility": "0.x || 1.x",
+    "author": {
+        "name": "Danny Schotanus",
+        "email": "dannzak@gmail.com"
+    },
+    "contributors": {
+        "developers": [
+            {
+                "name": "Rocodamelshe",
+                "email": "rob@schotanus.net"
+            }
+        ]
+    },
+    "description": {
+        "en": "More functionality for use in flows in combination with Philips Hue Lights",
+        "nl": "Meer functionaliteit voor gebruik in flows in combinatie met Philips Hue Lichten"
+    },
+   "images":{
+      "large":"./assets/images/large.jpg",
+      "small":"./assets/images/small.jpg"
+   },
+    "permissions": [],
+    "category": "lights",
+    "flow": {
+        "actions": [
+            {
+                "id": "activate_hue_scene",
+                "title": {
+                    "en": "Activate specific Hue Scene",
+                    "nl": "Activeer een Hue Scene"
+                },
+                "args": [
+                    {
+                        "name": "scene",
+                        "type": "autocomplete",
+                        "placeholder": {
+                            "nl": "Naam van de scene", 
+                            "en": "Name of your scene"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "deactivate_hue_scene",
+                "title": {
+                    "en": "Deactivate specific Hue Scene",
+                    "nl": "Deactiveer een Hue Scene"
+                },
+                "args": [
+                    {
+                        "name": "scene",
+                        "type": "autocomplete",
+                        "placeholder": {
+                            "nl": "Naam van de scene", 
+                            "en": "Name of your scene"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

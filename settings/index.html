@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="/manager/webserver/assets/js/jquery.js"></script>
+        <script type="text/javascript" src="../assets/js/front.js"></script>
+    </head>
+    <body>
+        <img class="logo" src="../assets/icon.svg">
+        <h1>Constellation Settings</h1>
+        <p>On this page you can edit the settings for the different parts of Constellation</p>
+        <div class="message" id="message">
+            
+        </div>
+
+        <fieldset>
+            <legend>Hue lights</legend>
+            <p class="note">Remember that the use of a username will be removed from your bridge in the future. Please use the randomly generated API-key instead</p>
+
+            <div class="field row">
+                <label for="test">Hue Bridge API Key</label>
+                <input id="bridge-key" type="text" value="" placeholder="Bridge Key/Username"/>
+            </div>
+            <div class="field row">
+                <label for="test">Hue Bridge IP</label>
+                <input id="bridge-ip" type="text" value="" placeholder="The IP of your bridge"/>
+            </div>
+        </fieldset>
+
+        <button class="right blue" onclick="save()">Save changes</button>
+        <button id="test-connection" class="right orange test-connection" onclick="testConnection()">Test connection</button>
+
+        <script type="text/javascript">
+            function onHomeyReady(){
+                init();
+                Homey.ready();
+            }
+        </script>
+    </body>
+</html>
