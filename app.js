@@ -10,20 +10,34 @@ function init() {
 	Homey.log("Constellation (dev) is running!");
 }
 
+function getBridge() {
+    return http.json('https://www.meethue.com/api/nupnp').then(function (result) {
+        
+        if (typeof result[0].id !== 'undefined') {
+            
+            if (typeof Homey.manager('settings').get( 'bridge_token_'+result[0].id ) !== 'undefined') {
+                return Homey.manager('settings').get( 'bridge_token_'+result[0].id );
+            }
+        }
+        return Homey.manager('settings').get( 'constellation-bridge-key' );
+    });
+}
+
 //Get available scenes from the bridge
 function getScenes(callback) {
-    
-    var key = Homey.manager('settings').get( 'constellation-bridge-key' );
     var ipaddress = Homey.manager('settings').get( 'constellation-bridge-ip' );
     
-    http.json('http://'+ipaddress+'/api/'+key+'/scenes').then(function (result) {
-        
+    Homey.log("Getting scenes....");
+    
+    getBridge().then( function(key) {
+        return http.json('http://'+ipaddress+'/api/'+key+'/scenes')
+    }).then(function (result) {
         scenes = [];
 
         for (var entry in result) {
             //Returned name contains things we do not want in the id
-            var sceneid = entry.split("-")[0];
-            
+            var sceneid = entry;
+
             scenes.push(
                 {
                     icon: "",
@@ -32,19 +46,18 @@ function getScenes(callback) {
                     scene: sceneid
                 }
             );
-        };
-    }).then(function () {
-        callback( null, scenes ); // err, results  
+        }
+        
+        callback(null, scenes);
     });
 }
 
 function action(request, args, callback) {
-    var key = Homey.manager('settings').get( 'constellation-bridge-key' );
     var ipaddress = Homey.manager('settings').get( 'constellation-bridge-ip' );
     
-    Homey.log(ipaddress);
-    
-    http.put('http://'+ipaddress+'/api/'+key+'/groups/0/action', args).then( function(result) {
+    getBridge().then( function(key) {
+        return http.put('http://'+ipaddress+'/api/'+key+'/groups/0/action', args)
+    }).then( function(result) {
         callback( null, true ); // we've fired successfully
     }).catch(function (error) {
         callback(error, false)
@@ -53,7 +66,7 @@ function action(request, args, callback) {
 
 //Turn on a scene
 Homey.manager('flow').on('action.activate_hue_scene', function( callback, args ){
-    action("put", {"on": true, "scene": args.scene.scene}, function() {
+    action("put", {"scene": args.scene.scene}, function() {
         callback( null, true );
     });
 });
@@ -67,12 +80,13 @@ Homey.manager('flow').on('action.deactivate_hue_scene', function( callback, args
 
 Homey.manager('flow').on('action.activate_hue_scene.scene.autocomplete', function( callback, args ){
     getScenes(function() {
+        Homey.log("getScenes() called");
         callback( null, scenes ); // err, results  
     });
 });
 
 Homey.manager('flow').on('action.deactivate_hue_scene.scene.autocomplete', function( callback, args ){
-        getScenes(function() {
+    getScenes(function() {
         callback( null, scenes ); // err, results  
     });
 });

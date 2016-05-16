@@ -5,6 +5,7 @@
     "dependencies": {
         "http.min":"^1.2.4",
         "jsonpath-plus":"0.14.0",
-        "ws":"^1.0.1"
+        "ws":"^1.0.1",
+        "async": "^2.0.0-rc.4"
     }
 }
