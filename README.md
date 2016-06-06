@@ -11,14 +11,16 @@ You should use the randomly generated key, as the username functionality will be
 ## Cards
 
 The following cards are available:
-- [ACTION] Turn scene on
-- [ACTION] Tusn scene off
+* Turn on scenes
+* Turn on/off groups (new in 0.0.2)
+* Enable/disable 'colorloop' effect for group (new in 0.0.2)
+* Blink: Flash the lights once, or for 15 seconds (new in 0.0.2)
 
-Just add the Constellation card, click the textbox and select the scene you want. 
+Just add the Constellation card, click the textbox and select the scene you want. You can specify the duration and brightness when enabling a group. 
 
-## More
+## Incoming
 
-More functionality is incoming. Check back later.
+We are working on cool new options. Check back later for more updates. 
 
 ### Use at your own risk
 
