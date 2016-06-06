@@ -3,7 +3,7 @@
     "name": {
         "en": "Constellation"
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "compatibility": "0.x || 1.x",
     "author": {
         "name": "Danny Schotanus",
@@ -51,6 +51,119 @@
                 ]
             },
             {
+                "id": "enable_group",
+                "title": {
+                    "en": "Activate lights in group",
+                    "nl": "Activeer lichten in groep"
+                },
+                "args": [
+                    {
+                        "name": "group",
+                        "type": "autocomplete",
+                        "placeholder": {
+                            "nl": "Kies een groep", 
+                            "en": "Choose a group"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "type": "number",
+                        "min": 0,
+                        "placeholder": {
+                            "nl": "Duur in seconden", 
+                            "en": "Duration in seconds"
+                        }
+                    },
+                    {
+                        "name": "brightness",
+                        "type": "range",
+                        "min": 0,
+                        "max": 100,
+                        "step": 10,
+                        "label": "%",
+                        "labelMultiplier": 0,
+                        "labelDecimals": 0
+                    }
+                ]
+            },
+            {
+                "id": "disable_group",
+                "title": {
+                    "en": "Deactivate lights in group",
+                    "nl": "Deactiveer lichten in groep"
+                },
+                "args": [
+                    {
+                        "name": "group",
+                        "type": "autocomplete",
+                        "placeholder": {
+                            "nl": "Kies een groep", 
+                            "en": "Choose a group"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "type": "number",
+                        "min": 0,
+                        "placeholder": {
+                            "nl": "Duur in seconden", 
+                            "en": "Duration in seconds"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "enable_color_loop",
+                "title": {
+                    "en": "Activate colorloop",
+                    "nl": "Activeer colorloop"
+                },
+                "args": [
+                    {
+                        "name": "group",
+                        "type": "autocomplete",
+                        "placeholder": {
+                            "nl": "Kies een groep", 
+                            "en": "Choose a group"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "blink_once",
+                "title": {
+                    "en": "Blink the lights once",
+                    "nl": "Knipper eenmaal"
+                },
+                "args": [
+                    {
+                        "name": "group",
+                        "type": "autocomplete",
+                        "placeholder": {
+                            "nl": "Kies een groep", 
+                            "en": "Choose a group"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "blink_multiple",
+                "title": {
+                    "en": "Blink the lights for 15 seconds",
+                    "nl": "Knipper 15 seconden"
+                },
+                "args": [
+                    {
+                        "name": "group",
+                        "type": "autocomplete",
+                        "placeholder": {
+                            "nl": "Kies een groep", 
+                            "en": "Choose a group"
+                        }
+                    }
+                ]
+            },
+            {
                 "id": "deactivate_hue_scene",
                 "title": {
                     "en": "Deactivate specific Hue Scene",
@@ -63,6 +176,23 @@
                         "placeholder": {
                             "nl": "Naam van de scene", 
                             "en": "Name of your scene"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "disable_color_loop",
+                "title": {
+                    "en": "Deactivate colorloop",
+                    "nl": "Stop de colorloop"
+                },
+                "args": [
+                    {
+                        "name": "group",
+                        "type": "autocomplete",
+                        "placeholder": {
+                            "nl": "Kies een groep", 
+                            "en": "Choose a group"
                         }
                     }
                 ]
