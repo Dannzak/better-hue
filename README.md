@@ -1,5 +1,5 @@
-# Constellation
-Turn on and off Hue scenes from Homey (www.athom.com)
+# Better Hue
+More functionality for your Hue lights for use with Homey
 
 ## Preparation
 
@@ -22,6 +22,6 @@ Just add the Constellation card, click the textbox and select the scene you want
 
 We are working on cool new options. Check back later for more updates. 
 
-### Use at your own risk
+#### Use at your own risk
 
-Use at your own risk, I accept no responsibility for any damages caused by using this script.
+Use at your own risk, I accept no responsibility for any damages caused by using this app.
